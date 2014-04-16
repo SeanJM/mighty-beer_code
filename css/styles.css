@@ -21,6 +21,10 @@ body {
   background: url(../img/sprites_main.png);
 }
 
+[class*="feature_"] {
+  background: url(../img/features-01.png);
+}
+
 /* ------------- Fonts */
 
 .hero-heading {
@@ -28,6 +32,8 @@ body {
 }
 
 /* ------------- The Grid */
+.block,
+.container,
 .g3,
 .g4,
 .g5,
@@ -35,19 +41,18 @@ body {
 .g7,
 .g8,
 .g9,
+.mighty-beer_logo,
+.row,
+.section,
+[class*="feature_"],
 [class*="g1"],
 [class*="g2"],
 [class*="icon"],
-.block,
 [class^="btn"],
-label,
-label [type="checkbox"],
 input,
-select,
-.container,
-.section,
-.mighty-beer_logo,
-.row {
+label [type="checkbox"],
+label,
+select {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
@@ -183,6 +188,7 @@ select,
 .section {
   padding: 50px;
   width: 100%;
+  position: relative;
 }
 
 .container {
@@ -347,9 +353,10 @@ select {
 }
 
 .btn._large {
-  line-height: 60px;
   height: 60px;
+  border-radius: 8px;
   font-size: 20px;
+  line-height: 60px;
 }
 
 .btn._primary {
@@ -375,7 +382,7 @@ select {
   height: auto;
 
   /* Set up positioning */
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
@@ -393,6 +400,7 @@ select {
 .section.hero {
   text-align: center;
   padding: 70px 0;
+  overflow: hidden;
 }
 
 .hero-heading,
@@ -413,9 +421,87 @@ select {
   margin-bottom: 40px;
 }
 
+.attribution,
+.attribution * {
+  color: #fff;
+  color: rgba(255,255,255,0.5);
+}
+
+.attribution {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  line-height: 20px;
+  font-size: 10px;
+}
+
+/* ------- Features */
+
+[class*="feature_"] {
+  width: 280px;
+  height: 280px;
+}
+
+.feature_beer-events {
+  background-position: -280px 0;
+}
+
+.feature_newsletter {
+  background-position: 0 -280px;
+}
+
+.feature_beers-peers {
+  background-position: -280px -280px;
+}
+
+.feature h2 {
+  font-weight: 700;
+  color: #D38033;
+  margin-top: -30px;
+  line-height: 30px;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  line-height: 20px;
+  font-size: 20px;
+}
+
+/* ------ Footer */
+
+.footer {
+  background: #281F11;
+}
+
+.footer p,
+.footer .attribution {
+  color: #6A532F;
+}
+
+.footer p {
+  margin-bottom: 10px;
+  font-size: 18px;
+  line-height: 16px;
+}
+
+.footer .attribution {
+  position: static;
+  font-size: 12px;
+}
+
+.footer .attribution a {
+  color: #B87C1F;
+}
+
 /* Mobile */
 
 @media screen and (max-width: 480px) {
+
+  .main {
+    overflow: hidden;
+    width: 100%;
+  }
 
   /* Mobile Layout */
   .m1  { width: 4.16666666666667%;  }
@@ -584,24 +670,6 @@ select {
     left: 0;
     top: 0;
     z-index: 10000;
-  }
-
-  /* Full Screen Background */
-
-  .fs_background {
-    /* Set rules to fill background */
-    min-width: 1000px;
-
-    /* Set up proportionate scaling */
-    width: 100%;
-    height: auto;
-
-    /* Set up positioning */
-    position: absolute;
-    top: 0;
-    left: 50%;
-    z-index: -1;
-    margin-left: -500px;
   }
 
 }
