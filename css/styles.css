@@ -5,14 +5,29 @@
   margin: 0;
   padding: 0;
   vertical-align: top;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 300;
 }
 
 body {
   font-size: 0;
   background: #ffffff;
   text-align: center;
+}
+
+/* Fonts */
+
+* {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 300;
+}
+
+.nav-item,
+label,
+input,
+select,
+button,
+.form-validate-prompt_chrome {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
 /* ------------- Background Assignment */
@@ -22,7 +37,7 @@ body {
 }
 
 [class*="feature_"] {
-  background: url(../img/features-01.png);
+  background: url(../img/sprites_features.png);
 }
 
 /* ------------- Fonts */
@@ -32,6 +47,7 @@ body {
 }
 
 /* ------------- The Grid */
+
 .block,
 .container,
 .g3,
@@ -41,7 +57,14 @@ body {
 .g7,
 .g8,
 .g9,
+.icon_nav-control,
 .mighty-beer_logo,
+.monthly_box_apparel,
+.monthly_box_barware,
+.monthly_box_glassware,
+.monthly_box_item,
+.monthly_box_more,
+.nav-item,
 .row,
 .section,
 [class*="feature_"],
@@ -148,8 +171,8 @@ select {
 .col1of2    { padding-right: 22px ; }
 .col2of2    { padding-left: 22px  ; }
 
-.col1of2-sm { padding-right: 11px ; }
-.col2of2-sm { padding-left: 11px  ; }
+.col1of2-sm { padding-right: 5px ; }
+.col2of2-sm { padding-left: 5px  ; }
 
 .col1of3    { padding-right: 29px ; }
 .col2of3    { padding-left: 15px  ; padding-right: 15px ; }
@@ -185,8 +208,15 @@ select {
 .col4of5-sm { padding-left: 9px   ; padding-right: 3px  ; }
 .col5of5-sm { padding-left: 12px  ; }
 
+.app-container {
+  position: relative;
+  width: 100%;
+  min-width: 960px;
+  overflow: hidden;
+}
+
 .section {
-  padding: 50px;
+  padding: 100px 0;
   width: 100%;
   position: relative;
 }
@@ -229,16 +259,25 @@ p {
 }
 
 h1 {
-  font-size: 38px;
-  line-height: 100px;
-  color: #484848;
+  font-size: 46px;
+  line-height: 60px;
+  color: #E9940A;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 h2 {
-  font-size: 30px;
-  line-height: 50px;
-  color: #303030;
-  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 36px;
+  color: #727272;
+  margin: 0 70px 0;
+  text-align: justify;
+}
+
+h1 + h2 {
+  margin-top: -10px;
 }
 
 h3 {
@@ -266,24 +305,42 @@ hr {
 
 /* ------------- Form Elements */
 
-[class^="btn"],
 .switch,
-label,
-input[type="text"],
+[class^="btn"],
+input[type="date"],
+input[type="email"],
 input[type="password"],
-textarea,
-select {
-  font-size: 14px;
+input[type="tel"],
+input[type="text"],
+label,
+select,
+textarea {
+  font-size: 15px;
 }
 
-[class^="btn"],
-.switch,
-label,
-input[type="text"],
+[class*="btn-"],
+input[type="date"],
+input[type="email"],
 input[type="password"],
+input[type="tel"],
+input[type="text"],
+label,
+select,
+textarea {
+  border-radius: 8px;
+}
+
+[class*="btn-"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="text"],
+label,
 select {
-  line-height: 42px;
-  height: 42px;
+  height: 50px;
+  line-height: 30px;
+  padding: 10px;
 }
 
 label {
@@ -296,13 +353,13 @@ label [type="checkbox"] {
   margin-left: 7px;
 }
 
-input[type="text"],
+input[type="date"],
+input[type="email"],
 input[type="password"],
+input[type="tel"],
+input[type="text"],
 textarea {
-  padding            : 0 10px;
   border             : 1px solid #807F7F;
-  border-radius      : 5px;
-  box-shadow         : 0 1px 1px rgba(0,0,0,0.15) inset;
   -moz-appearance    : none;
   -webkit-appearance : none;
   -o-appearance      : none;
@@ -316,17 +373,74 @@ textarea {
 
 select {
   -webkit-appearance: menulist-button;
-  padding: 5px;
-  border: 1px solid #b8b8b8;
   color: #828282;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15) inset;
 }
 
 .form-row {
   margin-bottom: 10px;
 }
 
-/* ------------- Buttons */
+.section.join input[type="date"],
+.section.join input[type="email"],
+.section.join input[type="password"],
+.section.join input[type="tel"],
+.section.join input[type="text"],
+.section.join textarea {
+  border: none;
+}
+
+.section.join label {
+  color: #fff;
+}
+
+/* ------- Form Validate */
+
+.form-validate-group {
+  position: relative;
+}
+
+.form-validate-container {
+  width: 430px;
+  margin: auto;
+}
+
+.form-validate-prompt {
+  position: absolute;
+  left: -10000;
+  z-index: 1;
+}
+
+.form-validate-prompt._animated-in {
+  position: absolute;
+  left: 0;
+}
+
+.form-validate-prompt,
+.form-validate-prompt_chrome {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.form-validate-prompt_chrome {
+  padding: 10px;
+  border-radius: 0 0 8px 8px;
+  font-size: 13px;
+  line-height: 12px;
+  color: #F8D9A6;
+  opacity: 0;
+  background: #6A532F;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.form-validate-prompt._animated-in .form-validate-prompt_chrome {
+  opacity: 1;
+}
+
+/* -------- Buttons */
 
 [class^="btn"]:hover,
 [class^="btn"] {
@@ -335,7 +449,6 @@ select {
 
 [class^="btn"] {
   padding: 0 17px 0;
-  border-radius: 5px;
   text-align: center;
   line-height: 36px;
   color: #28AAE1;
@@ -346,6 +459,7 @@ select {
   -o-transition: background 0.2s;
   transition: background 0.2s;
   cursor: pointer;
+  border: none;
 }
 
 .btn:hover {
@@ -369,6 +483,16 @@ select {
 
 [class^="btn-"] + [class^="btn-"] {
   margin-left: 10px;
+}
+
+.section.join [class*="btn"],
+.section.join [class*="btn"]:hover {
+  color: #fff;
+}
+
+.section.join [class*="btn"] {
+  background: none;
+  border: 1px solid #fff;
 }
 
 /* Full screen background */
@@ -395,12 +519,116 @@ select {
   height: 297px;
 }
 
+/* Nav */
+@-webkit-keyframes nav_in {0% {top: -80px; opacity: 0; } 100% {top: 0px; opacity: 1; } }
+@-moz-keyframes nav_in {0% {top: -80px; opacity: 0; } 100% {top: 0px; opacity: 1; } }
+@-ms-keyframes nav_in {0% {top: -80px; opacity: 0; } 100% {top: 0px; opacity: 1; } }
+@keyframes nav_in {0% {top: -80px; opacity: 0; } 100% {top: 0px; opacity: 1; } }
+
+@-webkit-keyframes nav_out {
+  100% {top: -80px; opacity: 0; } 
+  0% {top: 0px; opacity: 1; } 
+}
+
+.nav {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  z-index: 999;
+  top: 0;
+  position: absolute;
+}
+
+.nav-item {
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 60px;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.nav-item:hover {
+  background: url(../img/sprites_black-50.png);
+  color: #fff;
+}
+
+.nav-item + .nav-item {
+  margin-left: 10px;
+}
+
+/* ------- Section Headings */
+
+.section.perks h1 {
+  color: #E9940A;
+}
+
+.section.beers2peers h2,
+.section.beers2peers h1,
+.section.monthly h1,
+.section.join h1,
+.section.monthly h2 {
+  color: #fff;
+}
+
+/* ------- Section Backgrounds */
+
+.section.monthly,
+.section.join {
+  background-color: #E9940A;
+}
+
+.section.beers2peers {
+  background-color: #62AEEE;
+}
+
+.bg_orange,
+.bg_orange-bubbles,
+.bg_blue,
+.bg_blue-bubbles {
+  position: absolute;
+  left: 50%;
+  background: url(../img/sprites_bg.png);
+}
+
+.bg_orange,
+.bg_blue {
+  top: 0;
+  width: 1054px;
+  height: 579px;
+  margin-left: -527px;
+}
+
+.bg_orange-bubbles,
+.bg_blue-bubbles {
+  width: 840px;
+  height: 447px;
+  margin-left: -420px;
+}
+
+.bg_blue {
+  background-position: -1054px 0;
+}
+
+.bg_orange-bubbles {
+  bottom: 0;
+  background-position: 0 -579px;
+}
+
+.bg_blue-bubbles {
+  top: 0;
+  background-position: -840px -579px;
+}
+
 /* Hero */
 
 .section.hero {
   text-align: center;
-  padding: 70px 0;
+  padding: 90px 0 70px;
   overflow: hidden;
+}
+
+.section.hero .container {
+  text-align: center;
 }
 
 .hero-heading,
@@ -419,6 +647,7 @@ select {
   line-height: 30px;
   font-size: 26px;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .attribution,
@@ -435,37 +664,86 @@ select {
   font-size: 10px;
 }
 
-/* ------- Features */
+/* ------- Montly */
 
-[class*="feature_"] {
-  width: 280px;
-  height: 280px;
-}
-
-.feature_beer-events {
-  background-position: -280px 0;
-}
-
-.feature_newsletter {
-  background-position: 0 -280px;
-}
-
-.feature_beers-peers {
-  background-position: -280px -280px;
-}
-
-.feature h2 {
-  font-weight: 700;
-  color: #D38033;
-  margin-top: -30px;
-  line-height: 30px;
-  font-size: 36px;
+.feature_monthly {
+  margin: auto;
+  display: block;
   margin-bottom: 20px;
+  width: 231px;
+  height: 225px;
+  background-position: 0 -388px;
 }
 
-.feature h3 {
-  line-height: 20px;
-  font-size: 20px;
+.monthly_box_contents {
+  width: 760px;
+  margin: auto;
+}
+
+.monthly_box_item {
+  width: 25%;
+  text-align: center;
+}
+
+.monthly_box_item h3 {
+  font-weight: 700;
+  color: #fff;
+}
+
+.monthly_box_apparel,
+.monthly_box_glassware,
+.monthly_box_barware,
+.monthly_box_more {
+  width: 130px;
+  height: 130px;
+  background: url(../img/sprites_box_contents.png);
+}
+
+.monthly_box_glassware { background-position: -130px 0; }
+
+.monthly_box_barware { background-position: -260px 0; }
+
+.monthly_box_more { background-position: -390px 0; }
+
+.section.monthly hr {
+  width: 188px;
+  border-color: #fff;
+  margin: 50px auto;
+}
+
+/* ------- Gatherings */
+
+.feature_invitation {
+  margin: 50px auto 0;
+  display: block;
+  width: 515px;
+  height: 297px;
+  background-position: -232px -388px;
+}
+
+/* ------- Beers2Peers */
+
+.feature_beers2peers {
+  display: block;
+  margin: 0 auto 50px;
+  width: 454px;
+  height: 273px;
+  background-position: -750px 0;
+}
+
+/* ------- Brewsletter */
+
+.section.brewsletter {
+  padding-top: 350px;
+}
+
+.feature_brewsletter {
+  width: 760px;
+  height: 388px;
+  left: 50%;
+  top: 0;
+  margin-left: -380px;
+  position: absolute;
 }
 
 /* ------ Footer */
@@ -492,6 +770,48 @@ select {
 
 .footer .attribution a {
   color: #B87C1F;
+}
+
+/* Desktop Only Nan Transition */
+
+@media screen and (min-width: 480px) {
+  .nav-container {
+    min-width: 960px;
+  }
+
+  .nav._animated-in,
+  .nav._animated-out {
+    position: fixed;
+  }
+
+  .nav._animated-in {
+    min-width: 960px;
+    -webkit-animation: nav_in 0.3s;
+    -moz-animation: nav_in 0.3s;
+    -ms-animation: nav_in 0.3s;
+    animation: nav_in 0.3s;
+  }
+
+  .nav._animated-out {
+    -webkit-animation: nav_out 0.3s;
+    -moz-animation: nav_out 0.3s;
+    -ms-animation: nav_out 0.3s;
+    animation: nav_out 0.3s;
+  }
+
+  .nav-bg {
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    z-index: -1;
+    top: -60px;
+    overflow: hidden;
+    background: url(../img/sprites_black-70.png);
+  }
+
+  .nav._animated-in .nav-bg {
+    top: 0;
+  }
 }
 
 /* Mobile */
@@ -582,8 +902,8 @@ select {
   }
 
   .section {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding: 60px 0;
+    width: 100%;
   }
 
   .m24[class*="col"] {
@@ -607,10 +927,9 @@ select {
     margin-top: 20px;
   }
 
-  h1+.row-xl,
   [class*="row"]+.row-xl,
-  [class*="mrow"]+.mrow-xl {
-    margin-top: 30px;
+  [class*="row"]+.mrow-xl {
+    margin-top: 50px;
   }
 
   .mcenter { text-align: center; }
@@ -657,19 +976,235 @@ select {
   .mcol1of2-sm { padding-right: 11px ; padding-left: 0;}
   .mcol2of2-sm { padding-left: 11px  ; padding-right: 0;}
 
-  /* Typography */
+  /* ------- Images */
 
-  p {
-    font-size: 13px;
+  [class*="feature_"] {
+    background: url(../img/sprites_features_mobile.png);
   }
 
-  /* Mobile Status bar */
+  /* ------- Typography */
 
-  .status-bar {
+  p {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  h2 {
+    margin: 0 10px 0;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  h3 {
+    font-size: 18px;
+    line-height: 36px;
+  }
+
+  /* ------- Forms */
+
+  [class*="btn-"], input[type="date"], input[type="email"], input[type="password"], input[type="tel"], input[type="text"], label, select {
+    height: 40px;
+    line-height: 20px;
+    padding: 10px;
+  }
+
+  .btn._large {
+    line-height: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  /* ------- Sections */
+
+  .section.hero {
+    padding: 30px 0 50px;
+  }
+
+  .section.beers2peers {
+    overflow: hidden;
+  }
+
+  /* ------- Mobile Status bar */
+
+  .mighty-beer_logo {
+    background: url(../img/sprites_main_mobile.png);
+    width: 168px;
+    height: 158px;
+  }
+
+  .hero-heading {
+    margin-bottom: 30px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+
+  .hero-subheading {
+    margin-bottom: 30px;
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  /* ------- App Container */
+
+  .app-container {
+    min-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main {
+    width: 100%;
+    -webkit-transition: margin-left 0.3s;
+    -moz-transition: margin-left 0.3s;
+    -ms-transition: margin-left 0.3s;
+    transition: margin-left 0.3s;
+  }
+
+  .app-container._animated-in .main {
+    margin-left: 50%;
+  }
+
+
+  /* ------- Nav */
+
+  .nav,
+  .nav-control {
+    -webkit-transition: left 0.3s;
+    -moz-transition: left 0.3s;
+    -ms-transition: left 0.3s;
+    transition: left 0.3s;
+  }
+
+  .nav-control {
+    z-index: 999;
     position: fixed;
-    left: 0;
     top: 0;
-    z-index: 10000;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(0,0,0,0);
+  }
+
+  .icon_nav-control {
+    width: 44px;
+    height: 44px;
+    background: url(../img/sprites_nav.png);
+  }
+
+  .nav-control.setNav_white .icon_nav-control {
+    background-position: 0 -44px;
+  }
+
+  .nav {
+    width: 50%;
+    position: fixed;
+    height: 100%;
+    left: -50%;
+    background: #2D2314;
+  }
+
+  .nav-item {
+    font-size: 13px;
+    width: 100%;
+    line-height: 20px;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .nav-item + .nav-item {
+    margin-left: 0;
+  }
+
+  .app-container._animated-in .nav {
+    left: 0;
+  }
+
+  .app-container._animated-in .nav-control {
+    left: 50%;
+  }
+
+  /* ------- Monthly Deliveries */
+
+  .feature_monthly {
+    background-position: 0 -163px;
+    width: 210px;
+    height: 205px;
+  }
+
+  .monthly_box_contents {
+    width: 100%;
+  }
+
+  .monthly_box_item {
+    width: 50%;
+  }
+  
+  .monthly_box_item:nth-child(n+3) {
+    margin-top: 10px;
+  }
+
+  .monthly_box_apparel,
+  .monthly_box_glassware,
+  .monthly_box_barware,
+  .monthly_box_more {
+    width: 104px;
+    height: 104px;
+    background: url(../img/sprites_box_contents_mobile.png);
+  }
+
+  .monthly_box_glassware {
+    background-position: -104px 0;
+  }
+
+  .monthly_box_barware {
+    background-position: -208px 0;
+  }
+
+  .monthly_box_more {
+    background-position: -312px 0;
+  }
+
+  .section.monthly hr {
+    margin: 30px auto;
+  }
+
+  /* ------- Invitations */
+
+  .feature_invitation {
+    background-position: -210px -163px;
+    width: 280px;
+    height: 162px; 
+  }
+
+  /* ------- Beers2Peers */
+
+  .feature_beers2peers {
+    width: 265px;
+    height: 159px;
+    background-position: -316px 0;
+  }
+
+  /* ------- Brewsletter */
+
+  .section.brewsletter {
+    padding-top: 163px;
+  }
+
+  .feature_brewsletter {
+    width: 316px;
+    height: 163px;
+    margin-left: -158px;
+  }
+
+  /* ------- Form validate */
+
+  .form-validate-container {
+    width: 100%;
   }
 
 }
@@ -681,8 +1216,48 @@ select {
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .nav-bg {
+    height: 80px;
+    top: -80px;
+  }
+
+  .nav-item {
+    line-height: 80px;
+    padding: 0 30px;
+  }
+
+  .container {
+    width: 1080px;
+  }
+
+  .form-validate-container {
+    width: 600px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .fs_background {
+    margin-top: -300px;
+  }
+}
+
 /* Retina Image Assignment */
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .mighty-beer_logo {
+    background-image: url(../img/sprites_main_mobile_retina.png);
+    background-size: 168px 158px;
+  }
+  [class*="feature_"] {
+    background-image: url(../img/sprites_features_mobile_retina.png);
+    background-size: 581px 368px;
+  }
+  .monthly_box_apparel,
+  .monthly_box_glassware,
+  .monthly_box_barware,
+  .monthly_box_more {
+    background-image: url(../img/sprites_box_contents_mobile_retina.png);
+    background-size: 416px 104px;
+  }
 }
-
